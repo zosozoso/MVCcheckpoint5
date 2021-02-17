@@ -9,15 +9,16 @@ import java.util.*; // For Observer
 import java.awt.*;
 import javax.swing.*;
 
-public class View3 extends JPanel implements Observer {
+public class View5 extends JPanel implements Observer {
 
     private Model model;
-    private Controller2 contr; // Parent Frame
+    private Controller3 contr; // Parent Frame
+    private boolean usingA;
 
     private JTextField display;
 
     // Constructor
-    public View3(Controller2 contr, Model model) {
+    public View5(Controller3 contr, Model model) {
 
         // Record references to the parent controller and the model
         this.contr = contr;
@@ -25,7 +26,7 @@ public class View3 extends JPanel implements Observer {
 
         // Set up view GUI
         setBackground(Color.yellow);
-        add(new JLabel("View3"));
+        add(new JLabel("View5"));
         display = new JTextField("No data", 15);
         add(display);
 
@@ -38,8 +39,11 @@ public class View3 extends JPanel implements Observer {
     public void update(Observable o, Object arg) {
 
         // Fetch (potentially) updated information and display it
-        int a = model.getDataA();
-        display.setText("Model data A: " + a);
+        int val = usingA ? model.getDataA() : model.getDataB();
+        if (usingA)
+            display.setText("Model data A: " + val);
+        else
+            display.setText("Model data B: " + val);
 
     } // update
 
@@ -49,5 +53,12 @@ public class View3 extends JPanel implements Observer {
         display.setText("");
 
     } // clear
+
+    public void setUsingA(boolean usingA) {
+        if (this.usingA != usingA) {
+            this.usingA = usingA;
+            update(model, null);
+        }
+    }
 
 } // class View3

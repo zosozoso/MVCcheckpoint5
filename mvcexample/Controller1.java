@@ -1,5 +1,14 @@
 package mvcexample;
 
+/**
+ *
+ * @author savi
+ */
+// Controller 1: displays views 1 and 2 
+//               (displaying A and B components of the model)
+// Offers three buttons: clear views, increment A in the model 
+// and quit - see below
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

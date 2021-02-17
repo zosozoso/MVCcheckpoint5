@@ -10,16 +10,15 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Controller2 extends JFrame implements ActionListener {
+public class Controller3 extends JFrame implements ActionListener {
 
     private Model model;
-    private View3 view3;
-    private View4 view4;
-    private JButton clearViews; // For direct message to views
-    private JButton incB; // To prompt them to refresh their contents from the model
+    private View5 view5;
+    private JButton switchA; // For direct message to views
+    private JButton switchB; // To prompt them to refresh their contents from the model
 
     // Constructor
-    public Controller2(Model model, String title, int y) {
+    public Controller3(Model model, String title, int y) {
 
         // Record reference to the model
         this.model = model;
@@ -33,17 +32,15 @@ public class Controller2 extends JFrame implements ActionListener {
         window.setLayout(new FlowLayout()); // The default is that JFrame uses BorderLayout
 
         // Set up input GUI
-        clearViews = new JButton("Clear views");
-        window.add(clearViews);
-        clearViews.addActionListener(this);
-        incB = new JButton("Increment B");
-        window.add(incB);
-        incB.addActionListener(this);
+        switchA = new JButton("Switch A");
+        window.add(switchA);
+        switchA.addActionListener(this);
+        switchB = new JButton("Switch B");
+        window.add(switchB);
+        switchB.addActionListener(this);
         // Create views
-        view3 = new View3(this, model);
-        window.add(view3);
-        view4 = new View4(this, model);
-        window.add(view4);
+        view5 = new View5(this, model);
+        window.add(view5);
 
         // Display the frame
         setVisible(true);
@@ -53,12 +50,11 @@ public class Controller2 extends JFrame implements ActionListener {
     // Button click handling:
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == clearViews) {
-            view3.clear();
-            view4.clear();
+        if (e.getSource() == switchA) {
+            view5.setUsingA(true);
         }
-        if (e.getSource() == incB) {
-            model.modifyB();
+        if (e.getSource() == switchB) {
+            view5.setUsingA(false);
         }
 
     } // actionPerformed
