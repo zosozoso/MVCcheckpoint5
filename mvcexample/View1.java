@@ -2,7 +2,7 @@ package mvcexample;
 
 // This is the cyan view
 // It displays the A component of the model (data base)
-
+//ryan
 import java.util.*;  // For Observer
 import java.awt.*;
 import javax.swing.*;
