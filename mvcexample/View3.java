@@ -43,11 +43,14 @@ public class View3 extends JPanel implements Observer {
 
     } // update
 
+    // Called by controller to refresh the view:
+    
     // Called by the controller to clear the view:
     public void clear() {
-
+        
         display.setText("");
-
+      
     } // clear
 
 } // class View3
+

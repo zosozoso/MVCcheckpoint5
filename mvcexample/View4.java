@@ -34,7 +34,7 @@ public class View4 extends JPanel implements Observer {
 
     } // constructor
 
-    // Called by controller to refresh the view:
+    @Override
     public void update(Observable o, Object arg) {
 
         // Fetch (potentially) updated information and display it
@@ -43,6 +43,7 @@ public class View4 extends JPanel implements Observer {
 
     } // update
 
+    
     // Called by the controller to clear the view:
     public void clear() {
 
