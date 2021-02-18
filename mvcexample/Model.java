@@ -3,7 +3,7 @@ package mvcexample;
 // A database with two counter components
 
 import java.util.*;  // For Observable
-
+  //To commit
 public class Model extends Observable {
 
     private int dataBaseA = 0;     // A two component database
